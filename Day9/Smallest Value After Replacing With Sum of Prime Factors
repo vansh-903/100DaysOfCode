@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int prime(int m)
+    {
+        int sum = 0;
+        for(int i=2;m>1;i++)
+        {
+            while((m%i) == 0)
+            {
+                sum = sum + i;
+                m = m /i;
+            }
+        }
+        return sum;
+    }
+    int smallestValue(int n) 
+    {
+            int sum = prime(n);
+
+            if(sum == n)
+            return sum;
+            else 
+            return smallestValue(sum);
+    }
+};
