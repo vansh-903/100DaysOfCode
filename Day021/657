@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        int countL=1;
+        int countR=1;
+        int countU=1;
+        int countD=1;
+        for(int i=0;i<moves.size();i++)
+        {
+            if(moves[i]=='U')
+            countU++;
+            else if(moves[i]=='L')
+            countL++;
+            else if(moves[i]=='R')
+            countR++;
+            else if(moves[i]=='D')
+            countD++;
+            else 
+            break;
+        }
+        if(countD==countU && countL==countR)
+        return true;
+        else
+        return false;
+        
+    }
+};
