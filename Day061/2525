@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string categorizeBox(int length, int width, int height, int mass) {
+        constexpr int dim_limit = 1e4;
+        constexpr int vol_limit = 1e9;
+
+        bool is_bulky = (length >= dim_limit ? true : (width >= dim_limit ? true : (height >= dim_limit ? true : false))) || (length * width * (long long)height >= 1e9);
+        bool is_heavy = mass >= 100;
+        if (is_bulky && is_heavy) {
+            return "Both";
+        } else if (is_bulky && !is_heavy) {
+            return "Bulky";
+        } else if (!is_bulky && is_heavy) {
+            return "Heavy";
+        } else {
+            return "Neither";
+        }
+    }
+};
